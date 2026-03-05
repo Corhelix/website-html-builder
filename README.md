@@ -76,10 +76,11 @@ All strategy and product documentation lives in `docs/`:
 | Document | Contents |
 |----------|----------|
 | [Sprint Acceptance Criteria](docs/strategy/13-sprint-acceptance-criteria.md) | Per-sprint testable definitions, build gate checklists |
+| [Audit Report](docs/strategy/14-audit-report.md) | Strategy coherence scores, build-impacting issues, recommendations |
 
 ## Status
 
-**Phase**: Strategy complete. Sprint acceptance criteria defined. Ready to build. Next: Sprint 1 (Foundation — Auth, Project Hierarchy, Knowledge Bank)
+**Phase**: Strategy audited. Build-impacting issues resolved. Ready to build. Next: Sprint 0 (Setup) then Sprint 1 (Foundation)
 
 ---
 

@@ -37,11 +37,41 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 
 ---
 
-## 3. MVP Scope
+## 3. Definitions
+
+### What is a Block?
+
+A **block** is a single, self-contained visual section of a web page. It maps to one distinct purpose on the page and renders independently.
+
+**Examples of blocks:**
+- Hero section (headline, subheadline, CTA, background image)
+- Social proof bar (logos, testimonial quotes, stats)
+- Feature grid (3-4 feature cards with icons and descriptions)
+- Testimonials section (carousel or grid of quotes)
+- CTA section (final call-to-action with form injection point)
+- FAQ accordion
+- Footer
+
+**NOT blocks (too granular):**
+- A single button
+- A heading
+- An individual testimonial card within a testimonials section
+
+**NOT blocks (too broad):**
+- An entire page
+- A multi-section layout combining hero + features + CTA
+
+**Rule of thumb:** If it has its own conversion purpose or visual identity on the page, it is a block. If removing it from the page leaves a visible gap, it is a block. A typical landing page has 4-8 blocks.
+
+**Impact:** This definition drives the data model (one `block` row per section), generation prompts (one generation call per block), review board layout (one iframe preview per block), and reuse metrics (blocks are the reusable unit across projects).
+
+---
+
+## 4. MVP Scope
 
 ### In Scope (MVP)
 
-#### 3.1 Knowledge Bank
+#### 4.1 Knowledge Bank
 - Create and manage knowledge banks per client entity
 - Required fields: brand tokens (colours, fonts, spacing), ICP definition, tone of voice
 - Optional fields: writing framework, approved module styles, reference pages, logo/assets
@@ -49,13 +79,13 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 - Knowledge bank persists across sessions — not locked to a thread
 - Pre-loaded templates for 3 verticals: schools, nonprofits, SMB services
 
-#### 3.2 Project Management
+#### 4.2 Project Management
 - Create projects linked to a knowledge bank
 - Project contains: name, knowledge bank reference, page list, generation queue
 - Page-level structure: name, conversion goal, block sequence (wireframe)
 - Project-level notes and brief documentation
 
-#### 3.3 AI Generation
+#### 4.3 AI Generation
 - Generate HTML blocks informed by knowledge bank context + page wireframe
 - Single block generation (one section at a time)
 - Full page generation (all blocks for a page in one run)
@@ -63,7 +93,7 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 - Generation uses Claude API with skill pack prompts
 - Each generation tagged with: prompt, timestamp, knowledge bank version, model used
 
-#### 3.4 Review Board
+#### 4.4 Review Board
 - Visual board showing generated blocks as live iframe previews
 - Side-by-side comparison of multiple versions
 - Approval workflow: approve, flag for edit, reject
@@ -72,7 +102,7 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 - Version number visible per block
 - Current approved state vs in-review state visible
 
-#### 3.5 HTML Output
+#### 4.5 HTML Output
 - Self-contained HTML with inline/scoped CSS
 - No external stylesheet dependencies
 - Vanilla JS only where needed (no libraries)
@@ -80,27 +110,28 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 - Consistent naming convention for injection points
 - Responsive by default
 
-#### 3.6 Git Integration
+#### 4.6 Git Integration
 - Every approved block auto-commits to project GitHub repo
 - Structured folder hierarchy: `client/project/page/block-name/`
 - Version history visible in the UI (mirrors Git history)
 - Rollback to previous version via UI (triggers Git revert)
 - Diff view between versions
 
-#### 3.7 Client Portal
+#### 4.7 Client Portal
 - Read-only view for client stakeholders
 - Shows current approved page stack (rendered, not code)
 - Change request submission via text field
 - Change requests appear as flagged items on the review board
 - No code visibility, no generation interface
 
-#### 3.8 Auth & Roles
+#### 4.8 Auth & Roles
 - Supabase Auth (email + password, magic link)
-- Role-based access: Builder, Reviewer, Client
+- Role-based access: Builder, Reviewer, Client, Developer
 - Workspace-level team management
 - Invite flow for team members and clients
+- Developer role: full Builder access plus direct Git repo access and API credentials visibility
 
-#### 3.9 Deployment Routing
+#### 4.9 Deployment Routing
 - **Vercel**: Connect repo → auto-deploy approved pages to staging URL
 - **Manual export**: Download approved HTML blocks for manual injection into GHL/WordPress
 - Deployment status visible per project (staged, live, not deployed)
@@ -125,7 +156,7 @@ Reduce agency build time from 40-60 hours to 8-12 hours by eliminating post-gene
 
 ---
 
-## 4. Technical Requirements
+## 5. Technical Requirements
 
 ### Stack
 | Layer | Technology | Rationale |
@@ -182,7 +213,7 @@ workspaces
 
 ---
 
-## 5. Non-Functional Requirements
+## 6. Non-Functional Requirements
 
 | Requirement | Target |
 |-------------|--------|
@@ -194,7 +225,7 @@ workspaces
 
 ---
 
-## 6. Risks and Mitigations
+## 7. Risks and Mitigations
 
 | Risk | Impact | Likelihood | Mitigation |
 |------|--------|-----------|-----------|
@@ -206,7 +237,7 @@ workspaces
 
 ---
 
-## 7. Open Questions
+## 8. Open Questions
 
 1. **Generation credit model**: Fixed per tier or pay-per-run? Need to validate with early users.
 2. **Git repo structure**: One repo per workspace or one repo per project? Per-project is cleaner but more repos to manage.

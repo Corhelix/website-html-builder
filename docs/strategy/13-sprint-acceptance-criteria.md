@@ -22,12 +22,13 @@
 - [ ] User is redirected to workspace dashboard after creation
 
 ### 1.3 Role Management
-- [ ] Three roles exist: `builder`, `reviewer`, `client`
+- [ ] Four roles exist: `builder`, `reviewer`, `client`, `developer`
 - [ ] Builder can invite users to workspace via email
 - [ ] Invited user receives email → clicks link → creates account → lands in workspace
 - [ ] Builder can assign or change roles for workspace members
 - [ ] Client role cannot access generation, review board admin actions, or project settings
 - [ ] Reviewer role can access review board but cannot create projects or run generation
+- [ ] Developer role has full Builder access plus: Git repo URL visible, commit history accessible, API credentials section visible in project settings
 
 ### 1.4 Row-Level Security (RLS)
 - [ ] User can only see workspaces they belong to
@@ -134,7 +135,15 @@
 - [ ] New version is created (doesn't overwrite previous)
 - [ ] Edit brief is stored in generation metadata
 
-### 3.6 Error Handling
+### 3.6 Generation Usage Tracking
+- [ ] Every generation run increments a workspace-level counter for the current billing period
+- [ ] Workspace dashboard shows: generation runs used / total allowed this period
+- [ ] When 80% of generation limit is reached, a warning banner is shown
+- [ ] When 100% of limit is reached, generation is blocked with a clear upgrade prompt
+- [ ] Usage resets at the start of each billing period
+- [ ] Admin/Builder can view usage breakdown by project
+
+### 3.7 Error Handling
 - [ ] Claude API timeout (>60s) returns user-friendly error, not raw stack trace
 - [ ] Claude API rate limit returns "Generation queued, retrying shortly"
 - [ ] Invalid knowledge bank (missing required fields) blocks generation with clear message
