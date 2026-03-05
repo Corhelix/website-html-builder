@@ -39,6 +39,8 @@ Page builders (Webflow, Framer, GHL, Elementor) have structure but eat 15+ hours
 
 All strategy and product documentation lives in `docs/`:
 
+### Strategy & Business Case (Phases 1-2)
+
 | Document | Contents |
 |----------|----------|
 | [Strategic Kernel](docs/strategy/01-strategic-kernel.md) | Diagnosis, guiding policy, coherent actions |
@@ -48,9 +50,30 @@ All strategy and product documentation lives in `docs/`:
 | [Positioning & Messaging](docs/strategy/05-positioning-messaging.md) | Value prop, messaging hierarchy, differentiation |
 | [GTM Strategy](docs/strategy/06-gtm-strategy.md) | Go-to-market phases, channels, unit economics |
 
+### Users & Product-Market Fit (Phase 3)
+
+| Document | Contents |
+|----------|----------|
+| [User Journeys](docs/strategy/07-user-journeys.md) | Four personas: Account Manager, CMO, Marketing Manager, Developer |
+| [Product-Market Fit](docs/strategy/08-product-market-fit.md) | PMF hypothesis, validation plan, pricing validation |
+
+### Product Definition (Phase 4)
+
+| Document | Contents |
+|----------|----------|
+| [PRD](docs/strategy/09-prd.md) | MVP scope, technical requirements, database schema, risks |
+| [Feature Prioritization](docs/strategy/10-feature-prioritization.md) | RICE-scored backlog, build order, effort estimates |
+
+### Architecture & Build Readiness (Phase 5)
+
+| Document | Contents |
+|----------|----------|
+| [Architecture](docs/strategy/11-architecture.md) | System diagram, component architecture, data flows, security |
+| [Build Readiness](docs/strategy/12-build-readiness.md) | Pre-mortem, assumptions, risk register, build gates |
+
 ## Status
 
-**Phase**: Strategy & Business Case (pre-build)
+**Phase**: Strategy complete. Ready to build. Next: Sprint 1 (Foundation — Auth, Project Hierarchy, Knowledge Bank)
 
 ---
 
