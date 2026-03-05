@@ -71,9 +71,15 @@ All strategy and product documentation lives in `docs/`:
 | [Architecture](docs/strategy/11-architecture.md) | System diagram, component architecture, data flows, security |
 | [Build Readiness](docs/strategy/12-build-readiness.md) | Pre-mortem, assumptions, risk register, build gates |
 
+### Sprint Execution (Phase 6)
+
+| Document | Contents |
+|----------|----------|
+| [Sprint Acceptance Criteria](docs/strategy/13-sprint-acceptance-criteria.md) | Per-sprint testable definitions, build gate checklists |
+
 ## Status
 
-**Phase**: Strategy complete. Ready to build. Next: Sprint 1 (Foundation — Auth, Project Hierarchy, Knowledge Bank)
+**Phase**: Strategy complete. Sprint acceptance criteria defined. Ready to build. Next: Sprint 1 (Foundation — Auth, Project Hierarchy, Knowledge Bank)
 
 ---
 
