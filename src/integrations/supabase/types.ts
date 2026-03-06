@@ -31,6 +31,7 @@ export type Database = {
           avatar_url?: string | null
           created_at?: string
         }
+        Relationships: []
       }
       workspaces: {
         Row: {
@@ -60,6 +61,7 @@ export type Database = {
           billing_period_start?: string
           created_at?: string
         }
+        Relationships: []
       }
       workspace_users: {
         Row: {
@@ -80,6 +82,22 @@ export type Database = {
           role?: 'builder' | 'reviewer' | 'client' | 'developer'
           invited_at?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: 'workspace_users_workspace_id_fkey'
+            columns: ['workspace_id']
+            isOneToOne: false
+            referencedRelation: 'workspaces'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'workspace_users_user_id_fkey'
+            columns: ['user_id']
+            isOneToOne: false
+            referencedRelation: 'profiles'
+            referencedColumns: ['id']
+          },
+        ]
       }
       knowledge_banks: {
         Row: {
@@ -109,6 +127,7 @@ export type Database = {
           created_at?: string
           updated_at?: string
         }
+        Relationships: []
       }
       kb_brand_tokens: {
         Row: {
@@ -135,6 +154,7 @@ export type Database = {
           spacing_scale?: string
           logo_url?: string | null
         }
+        Relationships: []
       }
       kb_icp: {
         Row: {
@@ -158,6 +178,7 @@ export type Database = {
           pain_points?: string[]
           decision_factors?: string[]
         }
+        Relationships: []
       }
       kb_tone: {
         Row: {
@@ -181,6 +202,7 @@ export type Database = {
           writing_framework?: string
           examples?: string[]
         }
+        Relationships: []
       }
       kb_assets: {
         Row: {
@@ -204,6 +226,7 @@ export type Database = {
           file_type?: string
           label?: string | null
         }
+        Relationships: []
       }
       projects: {
         Row: {
@@ -239,6 +262,7 @@ export type Database = {
           created_at?: string
           updated_at?: string
         }
+        Relationships: []
       }
       pages: {
         Row: {
@@ -268,6 +292,7 @@ export type Database = {
           sort_order?: number
           created_at?: string
         }
+        Relationships: []
       }
       blocks: {
         Row: {
@@ -294,6 +319,7 @@ export type Database = {
           sort_order?: number
           created_at?: string
         }
+        Relationships: []
       }
       block_versions: {
         Row: {
@@ -326,6 +352,7 @@ export type Database = {
           created_by?: string | null
           created_at?: string
         }
+        Relationships: []
       }
       change_requests: {
         Row: {
@@ -355,6 +382,7 @@ export type Database = {
           resolved_at?: string | null
           created_at?: string
         }
+        Relationships: []
       }
       generation_runs: {
         Row: {
@@ -399,6 +427,7 @@ export type Database = {
           error_message?: string | null
           created_at?: string
         }
+        Relationships: []
       }
       git_commits: {
         Row: {
@@ -422,6 +451,7 @@ export type Database = {
           commit_sha?: string
           committed_at?: string
         }
+        Relationships: []
       }
     }
     Views: Record<string, never>
@@ -436,5 +466,6 @@ export type Database = {
       }
     }
     Enums: Record<string, never>
+    CompositeTypes: Record<string, never>
   }
 }
