@@ -80,7 +80,7 @@ All strategy and product documentation lives in `docs/`:
 
 ## Status
 
-**Phase**: Strategy audited. Build-impacting issues resolved. Ready to build. Next: Sprint 0 (Setup) then Sprint 1 (Foundation)
+**Phase**: Sprint 0 complete. App scaffolded (Vite + React 19 + TypeScript + Tailwind v4 + shadcn/ui + Supabase + TanStack Query). Database migrations written (4 files). CI pipeline configured. Next: Sprint 1 (Auth & Workspace)
 
 ---
 
