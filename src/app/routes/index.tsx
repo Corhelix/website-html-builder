@@ -9,6 +9,13 @@ import { WorkspaceSelector } from '@/features/workspace/components/WorkspaceSele
 import { CreateWorkspaceForm } from '@/features/workspace/components/CreateWorkspaceForm'
 import { WorkspaceDashboard } from '@/features/workspace/components/WorkspaceDashboard'
 import { WorkspaceSettings } from '@/features/workspace/components/WorkspaceSettings'
+import { ProjectList } from '@/features/project/components/ProjectList'
+import { CreateProjectForm } from '@/features/project/components/CreateProjectForm'
+import { ProjectDashboard } from '@/features/project/components/ProjectDashboard'
+import { PageEditor } from '@/features/project/components/PageEditor'
+import { KBList } from '@/features/knowledge-bank/components/KBList'
+import { CreateKBForm } from '@/features/knowledge-bank/components/CreateKBForm'
+import { KBEditorPage } from '@/features/knowledge-bank/components/KBEditor'
 
 function AuthPage({ children }: { children: React.ReactNode }) {
   return (
@@ -87,11 +94,14 @@ export const router = createBrowserRouter([
       { index: true, element: <WorkspaceDashboard /> },
       { path: 'settings', element: <WorkspaceSettings /> },
       { path: 'members', element: <WorkspaceSettings /> },
-      // Sprint 2 placeholders
-      { path: 'projects', element: <ComingSoon title="Projects" /> },
-      { path: 'projects/:projectId', element: <ComingSoon title="Project" /> },
-      { path: 'knowledge-banks', element: <ComingSoon title="Knowledge Banks" /> },
-      { path: 'knowledge-banks/:kbId', element: <ComingSoon title="Knowledge Bank" /> },
+      // Sprint 2: Projects & Knowledge Banks
+      { path: 'projects', element: <ProjectList /> },
+      { path: 'projects/new', element: <CreateProjectForm /> },
+      { path: 'projects/:projectId', element: <ProjectDashboard /> },
+      { path: 'projects/:projectId/pages/:pageId', element: <PageEditor /> },
+      { path: 'knowledge-banks', element: <KBList /> },
+      { path: 'knowledge-banks/new', element: <CreateKBForm /> },
+      { path: 'knowledge-banks/:kbId', element: <KBEditorPage /> },
       // Sprint 5 placeholder
       { path: 'review', element: <ComingSoon title="Review Board" /> },
       // Sprint 7 placeholder
